@@ -1,0 +1,89 @@
+.main {
+  margin-top: 60px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 50px 10px 50px;
+}
+
+form button{
+margin-bottom: 20px;
+margin-left: 5px;
+background-color: #ff4081 !important;
+}
+
+
+
+.example-full-width{
+  width:100%;
+  margin:0px!important;
+}
+
+.refresh-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.autoprogress-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 10px;
+  gap:5px;
+
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 10px;
+  gap:5px;
+}
+
+button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+svg:hover {
+cursor: pointer;
+box-shadow: 0 0 11px #ff4081;
+border-radius: 50%;
+}
+
+
+.countdown-text {
+position: relative;
+right: 23px;
+font-size: 10px;
+}
+
+.spinner-progress{
+  width: 25px!important;
+  height: 25px!important;
+}
+
+@media only screen and (max-width: 728px) {
+  .main {
+    margin-top: 80px;
+  }
+  .refresh-container {
+    flex-direction: column;
+  }
+  .progress-container {
+    margin-right: 10%;
+  }
+}

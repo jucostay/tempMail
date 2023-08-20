@@ -1,0 +1,33 @@
+<header role="banner">
+  <span> DROPMAIL.ME Challenge </span>
+  <div class="slide-toggle">
+
+    <section>
+      <mat-slide-toggle
+        [(ngModel)]="isNotification"
+        (change)="sendNotification()"
+      >
+        <span>Ativar notificações</span>
+      </mat-slide-toggle>
+    </section>
+  </div>
+</header>
+
+<app-create-email (listInbox)="onListInbox($event)"></app-create-email>
+
+  <app-accordion-email-list [emails]="emails" ></app-accordion-email-list>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" style="max-width: 255px" opened>
+    <h4>INBOX</h4>
+
+    <app-email-list
+      [emails]="emails"
+      (selectedEmail)="onSelectedEmail($event)"
+    ></app-email-list>
+  </mat-drawer>
+
+  <mat-drawer-content style="margin-left: 250px">
+    <app-email-details [emailDetails]="email"></app-email-details>
+  </mat-drawer-content>
+</mat-drawer-container>

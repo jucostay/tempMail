@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100vh; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #ff4081;
+  color: white;
+  font-weight: 600;
+  padding: 0px 10px;
+}
+
+header img {
+  margin: 0 16px;
+}
+
+@media only screen and (max-width: 728px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 95px;
+  }
+  .slide-toggle{
+    margin: 10px 0 10px 0;
+    justify-content: flex-end;
+    display: flex;
+  }
+}

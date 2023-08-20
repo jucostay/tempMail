@@ -1,0 +1,40 @@
+<div class="main">
+  <div *ngIf="error">
+    <p>Error: {{ error }}</p>
+  </div>
+  <form class="form" [formGroup]="searchForm">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Seu email temporário</mat-label>
+      <input matInput readonly formControlName="tempEmail" value="tempEmail" #copyValue />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="copy(copyValue)" >COPY</button>
+  </form>
+  <div class="refresh-container">
+    <div class="autoprogress-container">
+      <span>Autorefresh in</span>
+      <mat-progress-spinner
+        class="spinner-progress"
+        [color]="color"
+        [mode]="mode"
+        [value]="(countdown / 15) * 100"
+      ></mat-progress-spinner>
+      <div class="countdown-text">{{ countdown }}</div>
+    </div>
+
+    <div class="progress-container">
+      <button (click)="refreshPage()">
+        <svg style="color: #ff4081;" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+          <title>refresh</title>
+          <path d="M320,146s24.36-12-64-12A160,160,0,1,0,416,294" 
+                style="fill:none;stroke:#ff4081;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px" 
+                fill="#ff4081">
+          </path>
+          <polyline points="256 58 336 138 256 218" style="fill:none;stroke:#ff4081;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px">
+          </polyline>
+        </svg>
+      </button>
+      <span>Refresh</span>
+      <div class="refresh-text"></div>
+    </div>
+  </div>
+</div>
