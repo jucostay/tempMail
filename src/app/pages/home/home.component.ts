@@ -38,7 +38,7 @@ export class HomeComponent {
     }
   }
 
-  private showNotification() {
+  public showNotification() {
     const options = {
       body: 'Novo e-mail',
       icon: 'https://img.freepik.com/icones-gratis/e-mail_318-859700.jpg'
@@ -49,8 +49,8 @@ export class HomeComponent {
   notificationsActived() {
     const options = {
       body: 'Notificações ativadas',
-      icon: ''
+      icon: 'https://img.freepik.com/icones-gratis/e-mail_318-859700.jpg'
     };
-    const notification = new Notification('Verifique se as notificações estão ativadas em seu navegador.', options);
+    const notification = new Notification('Verifique se você permitiu as notificações em seu navegador.', options);
   }
 }

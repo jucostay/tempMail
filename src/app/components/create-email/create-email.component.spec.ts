@@ -1,15 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 
 import { CreateEmailComponent } from './create-email.component';
 import { Apollo } from 'apollo-angular';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
-import { of, throwError } from 'rxjs';
+import { Subscription  } from 'rxjs';
 
 describe('CreateEmailComponent', () => {
   let component: CreateEmailComponent;
   let fixture: ComponentFixture<CreateEmailComponent>;
-  let apollo: Apollo;
+  let apolloSpy: jasmine.SpyObj<Apollo>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -22,8 +22,7 @@ describe('CreateEmailComponent', () => {
     fixture = TestBed.createComponent(CreateEmailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    apollo = TestBed.inject(Apollo);
-
+    spyOn(localStorage, 'getItem').and.returnValue(JSON.stringify({ id: 'teste' }));
   });
 
   it('should create', () => {
@@ -49,5 +48,54 @@ describe('CreateEmailComponent', () => {
       expect(component.callFunction).toHaveBeenCalled();
     });
   });
+
+  it('should start the countdown and trigger restartCountdown and callFunction when countdown reaches 0', fakeAsync(() => {
+    const restartCountdownSpy = spyOn(component, 'restartCountdown');
+    const callFunctionSpy = spyOn(component, 'callFunction');
+    component.startCountdown();
+    tick(15000);
+    expect(component.subscription instanceof Subscription).toBe(true);
+    tick(1000);
+    expect(restartCountdownSpy).toHaveBeenCalled();
+    expect(callFunctionSpy).toHaveBeenCalled();
+    component.subscription.unsubscribe();
+  }));
+
+  it('should copy the text from an HTMLInputElement', () => {
+    const inputElement: HTMLInputElement = document.createElement('input');
+    inputElement.value = 'Text to be copied';
+    const selectSpy = spyOn(inputElement, 'select');
+    const setSelectionRangeSpy = spyOn(inputElement, 'setSelectionRange');
+    const execCommandSpy = spyOn(document, 'execCommand');
+    component.copy(inputElement);
+    expect(selectSpy).toHaveBeenCalled();
+    expect(setSelectionRangeSpy).toHaveBeenCalledWith(0, 99999);
+    expect(execCommandSpy).toHaveBeenCalledWith('copy');
+  });
+
+  it('should call getInbox with the session id from localStorage', () => {
+    const getInboxSpy = spyOn(component, 'getInbox');
+    component.callFunction();
+    expect(localStorage.getItem).toHaveBeenCalledWith('session');
+    expect(getInboxSpy).toHaveBeenCalledWith('teste');
+  });
+
+  it('should reset the countdown to 15', () => {
+    component.countdown = 10;
+    component.restartCountdown();
+    expect(component.countdown).toEqual(15); // Verifique se a propriedade countdown foi definida corretamente
+  });
+
+  it('should unsubscribe from the subscription if it exists', () => {
+    const unsubscribeSpy = spyOn(Subscription.prototype, 'unsubscribe');
+    component.subscription = new Subscription();
+    component.stopCountdown();
+    expect(unsubscribeSpy).toHaveBeenCalled();
+  });
+
+  it('should not throw an error if subscription is not defined', () => {
+    expect(() => component.stopCountdown()).not.toThrowError();
+  });
+
 
 });
