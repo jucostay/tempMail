@@ -15,7 +15,7 @@ O Gerador de E-mail Temporário que foi desenvolvido nesse projeto é uma ferram
  - Code Coverage
  - Karma-Jasmine
 
-## Clone este repositório para o seu ambiente local.
+## Como rodar o projeto localmente.
 
 Certifique-se de ter o Node.js na versão 20.5.1 e o Angular na versão 15.1.6 instalados em sua máquina.
 
