@@ -11,6 +11,8 @@ O Gerador de E-mail Temporário que foi desenvolvido nesse projeto é uma ferram
  - TypeScript
  - RxJS
  - API GraphQ
+ - Code Coverage
+ - Karma-Jasmine
 
 ## Clone este repositório para o seu ambiente local.
 
@@ -18,10 +20,13 @@ Certifique-se de ter o Node.js na versão 20.5.1 e o Angular na versão 15.1.6 i
 
 No diretório raiz do projeto, execute o comando "npm install" para instalar as dependências.
 Após a conclusão da instalação, execute o comando "ng serve" para iniciar o servidor de desenvolvimento.
+Para verificar os testes, rode o comando "ng test --no-watch --code-coverage"
 
 Acesse a aplicação no navegador através da porta 4200 (http://localhost:4200)
 
 ## DEPLOY FIREBASE:
+
+
 
 
 ## LINK APRESENTAÇÃO DO PROJETO
