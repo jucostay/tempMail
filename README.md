@@ -6,6 +6,7 @@ O Gerador de E-mail Temporário que foi desenvolvido nesse projeto é uma ferram
 
 ## Tecnologias Utilizadas
  - Angular 15
+ - Node
  - Apollo Angular
  - Material Angular
  - TypeScript
@@ -26,10 +27,12 @@ Acesse a aplicação no navegador através da porta 4200 (http://localhost:4200)
 
 ## DEPLOY FIREBASE:
 
-
+https://tempmail-617e0.web.app/ ou tempmail-617e0.firebaseapp.com
 
 
 ## LINK APRESENTAÇÃO DO PROJETO
+
+https://www.loom.com/embed/5b63aba07f3e4aa8b53f7be539d8a2d9
 
 
 This is a challenge by [Coodesh](https://coodesh.com/)

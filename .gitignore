@@ -3,6 +3,7 @@
 /dist
 /tmp
 /out-tsc
+/.firebase
 
 # dependencies
 /node_modules
@@ -36,5 +37,6 @@ testem.log
 /angular/cache
 
 # System Files
-.DS_Store
 Thumbs.db
+firebaserc
+firebase.json
