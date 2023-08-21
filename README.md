@@ -25,12 +25,12 @@ Para verificar os testes, rode o comando "ng test --no-watch --code-coverage"
 
 Acesse a aplicação no navegador através da porta 4200 (http://localhost:4200)
 
-## DEPLOY FIREBASE:
+## Projeto em Produção:
 
 https://tempmail-617e0.web.app/ ou tempmail-617e0.firebaseapp.com
 
 
-## LINK APRESENTAÇÃO DO PROJETO
+## Link de apresentação do projeto: 
 
 https://www.loom.com/embed/5b63aba07f3e4aa8b53f7be539d8a2d9
 
